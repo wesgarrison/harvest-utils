@@ -1,0 +1,3 @@
+[submodule "aiaio-harvest"]
+	path = aiaio-harvest
+	url = git://github.com/aiaio/harvest.git
