@@ -1,0 +1,32 @@
+Various scripts to import/export data from harvest time tracking & invoicing webapp
+Harvest: http://tinyurl.com/harvest-utils
+
+h2. Installing
+
+* clone
+* copy config.yml.example to config.yml
+* fill in account information and password 
+* fill in details for users
+
+h2. get_invoices.rb
+
+Usage: <pre>get_invoices.rb <space delimited invoice numbers></pre>
+Sample output:
+<pre><code>
+============================================================
+Report for invoice 1234
+Initech Corporation, Inc
+Invoice date: 2000-12-25
+
+------------------------------------------------------------
+Wes Garrison : 1.2 = 12.0 @ 10.00
+  ==> Wes Garrison split: $8.0  |  Company split: $4.0
+John Doe : 2.2 = $22.0 @ 10.00
+  ==> John Doe split: $11.0  |  Company split: $11.0
+2000-12-12 - John Doe: TPS Report Software : 1.0 = 100.00 @ 100.00
+total: $134.00
+</code></pre>
+
+h3. Features
+
+* Percentage commission or hourly rate
