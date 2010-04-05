@@ -19,12 +19,12 @@ end
 def pay_from_hours(who, vals)
   return if @users[who].nil?
   if @users[who].has_key?('hourly')
-    employee_amount = vals[:hours].to_f * @users[who]['hourly'].to_f
+    employee_amount = vals[:qty].to_f * @users[who]['hourly'].to_f
   else
-    employee_amount = vals[:amounts].to_f * @users[who]['commission'].to_f / 100.0
+    employee_amount = vals[:amount].to_f * @users[who]['commission'].to_f / 100.0
   end
   employee_amount = employee_amount.round(2)
-  company_amount  = vals[:amounts].to_f - employee_amount
+  company_amount  = vals[:amount].to_f - employee_amount
     
   print("  ==> #{who} split: ", green, "$#{employee_amount}", clear, "  |  Company split: ", green, "$#{company_amount}", clear, "\n")
 end
@@ -43,15 +43,15 @@ inv_nums.each do |inv_num|
     who = who_from_description(line['description'])
     who = line['description'] if "Product" == line['kind']
     totals[who] ||= {}
-    totals[who][:hours] ||= 0
-    totals[who][:amounts] ||= 0
+    totals[who][:qty] ||= 0
+    totals[who][:amount] ||= 0
     totals[who][:rate] ||= []
 
-    totals[who][:hours] += line['quantity'].to_f
-    totals[who][:amounts] += line['amount'].to_f
+    totals[who][:qty] += line['quantity'].to_f
+    totals[who][:amount] += line['amount'].to_f
     totals[who][:rate] << line['unit_price'] unless totals[who][:rate].include?(line['unit_price'])
   end
-
+  
   print cyan, "\n#{'=' * 60}", clear
   
   print "\nReport for invoice ", green, bold, inv_num, clear, "\n"
@@ -60,9 +60,9 @@ inv_nums.each do |inv_num|
   puts "\n#{'-' * 60}"
   inv_total = 0.0
   totals.each do |who, vals|
-    puts "#{who} : #{vals[:hours]} = #{vals[:amounts]} @ #{vals[:rate].join(' | ')}"
+    puts "#{who} : #{vals[:qty]} = #{vals[:amount]} @ #{vals[:rate].join(' | ')}"
     pay_from_hours(who, vals)
-    inv_total += vals[:amounts]
+    inv_total += vals[:amount]
   end
   puts "total:  #{inv_total}"
 end
