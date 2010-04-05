@@ -1,0 +1,11 @@
+connection: 
+  email: user@domain.com
+  password: secret
+  sub_domain: company-name
+  headers: 
+    User-Agent: company-name
+users:
+  John Salesman: 
+    commission: 25  # percentage of billable rate
+  Bob Worker:
+    hourly: 10      # hourly rate
