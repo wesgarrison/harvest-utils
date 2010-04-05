@@ -10,19 +10,19 @@ h2. Installing
 
 h2. get_invoices.rb
 
-Usage: <pre>get_invoices.rb <space delimited invoice numbers></pre>
+Usage: <pre>get_invoices.rb <i>space delimited invoice numbers</i></pre>
 Sample output:
 <pre><code>
 ============================================================
 Report for invoice 1234
 Initech Corporation, Inc
 Invoice date: 2000-12-25
+============================================================
 
-------------------------------------------------------------
 Wes Garrison : 1.2 = 12.0 @ 10.00
-  ==> Wes Garrison split: $8.0  |  Company split: $4.0
+==> Wes Garrison split: $8.0  |  Company split: $4.0
 John Doe : 2.2 = $22.0 @ 10.00
-  ==> John Doe split: $11.0  |  Company split: $11.0
+==> John Doe split: $11.0  |  Company split: $11.0
 2000-12-12 - John Doe: TPS Report Software : 1.0 = 100.00 @ 100.00
 total: $134.00
 </code></pre>
