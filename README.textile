@@ -8,6 +8,11 @@ h2. Installing
 * fill in account information and password 
 * fill in details for users
 
+h2. Install dependencies
+
+* <pre>git submodule update --init</pre>
+* <pre>sudo gem install active_resource_throttle</pre>
+
 h2. get_invoices.rb
 
 Usage: <pre>get_invoices.rb <i>space delimited invoice numbers</i></pre>
