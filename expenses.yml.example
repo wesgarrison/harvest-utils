@@ -1,0 +1,7 @@
+1:
+  monthly_hosting:
+    client: ACME
+    project: website
+    category: services
+    amount: 24.50
+    notes: monthly hosting expense
